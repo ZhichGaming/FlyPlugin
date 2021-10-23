@@ -1,0 +1,10 @@
+# FlyPlugin Config
+#
+# This plugin is made by ZhichGaming
+# The game version is 1.8
+
+# The message displayed when fly mode is activated.
+on-message: 'Fly enabled.'
+
+# The message displayed when fly mode if desactivated.
+off-message: '&7Fly disabled.'
