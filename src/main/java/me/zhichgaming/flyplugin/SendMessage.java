@@ -1,7 +1,6 @@
 package me.zhichgaming.flyplugin;
 
 import org.bukkit.ChatColor;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 import static org.bukkit.Bukkit.getServer;

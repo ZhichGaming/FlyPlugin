@@ -3,7 +3,8 @@ version: '${project.version}'
 main: me.zhichgaming.flyplugin.FlyPlugin
 api-version: 1.8.8
 authors: [ ZhichGaming ]
-description: Fly... in the sky...
+description: Allows a player to fly.
 commands:
   fly:
     description: Allows you to fly.
+    usage: /<command>

@@ -13,7 +13,6 @@ import static me.zhichgaming.flyplugin.SendMessage.sendToPlayer;
 
 public class FlyCommand implements CommandExecutor {
 
-
     private FlyPlugin plugin;
     private ArrayList<Player> flyList = new ArrayList<>();
 
@@ -24,43 +23,59 @@ public class FlyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-
         if (sender instanceof Player) {
+
             Player player = (Player) sender;
+
             if (args.length == 0) {
+
                 if (player.hasPermission("flyplugin.fly")) {
                     flyMethod(player);
+
                 } else {
                     player.sendMessage("You do not have the permission to do /fly");
                 }
 
             } else if (args.length == 1) {
+
                 Player target = Bukkit.getPlayer(args[0]);
+
                 if (args[0].equals("list")) {
+
                     if (player.hasPermission("flyplugin.list")) {
                         sendToPlayer(player, listMethod());
                     }
+
                 } else if (!(target == null)) {
+
                     if (player.hasPermission("flyplugin.fly.others")) {
                         flyMethod(target);
+
                     } else {
                         player.sendMessage("You do not have the permission to make others fly.");
                     }
+
                 } else if (target == null) {
                     sendToPlayer(player, "This player is not online.");
                 }
             }
 
         } else if (sender instanceof ConsoleCommandSender) {
+
             if (args.length == 0) {
                 printToConsole("This command can only be run by a player.");
+
             } else if (args.length == 1) {
+
                 Player target = Bukkit.getPlayer(args[0]);
+
                 if (args[0].equals("list")) {
                     printToConsole(listMethod());
+
                 } else if (!(target == null)) {
                     flyMethod(target);
                     printToConsole(target.getDisplayName() + " now has flight.");
+
                 } else if (target == null) {
                     printToConsole("This player is not online.");
                 }
@@ -68,7 +83,8 @@ public class FlyCommand implements CommandExecutor {
         } else {
             printToConsole("This command can only be run by a player.");
         }
-    return true;
+
+        return true;
     }
 
 
@@ -91,15 +107,19 @@ public class FlyCommand implements CommandExecutor {
 
         String flyingPlayers = "";
         if (!(flyList.isEmpty())) {
+
             for (Player player : flyList) {
                 if (flyingPlayers.length() >= 1) {
                     flyingPlayers += ", ";
                 }
+
                 flyingPlayers += player.getName();
             }
+
         } else if (flyList.isEmpty()) {
             flyingPlayers = "There are no flying players.";
         }
+
         return "List of flying players: " + flyingPlayers;
     }
 }
