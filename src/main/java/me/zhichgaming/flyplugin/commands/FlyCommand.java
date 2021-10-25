@@ -33,7 +33,7 @@ public class FlyCommand implements CommandExecutor {
                     flyMethod(player);
 
                 } else {
-                    player.sendMessage("You do not have the permission to do /fly");
+                    sendToPlayer(player, "You do not have the permission to do /fly");
                 }
 
             } else if (args.length == 1) {
@@ -53,7 +53,7 @@ public class FlyCommand implements CommandExecutor {
                         sendToPlayer(player, target.getDisplayName() + " now has fly.");
 
                     } else {
-                        player.sendMessage("You do not have the permission to make others fly.");
+                        sendToPlayer(player, "You do not have the permission to make others fly.");
                     }
 
                 } else if (target == null) {
